@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>for lokesh bro</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { background: #F7F3EE; }
+
+.scene {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: 'DM Serif Display', Georgia, serif;
+}
+
+.card-wrap { width: 100%; max-width: 520px; }
+
+/* COVER */
+.cover {
+  background: #FFF8F0;
+  border-radius: 24px;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #E8D8C4;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 24px rgba(180,140,100,0.08);
+}
+.cover:hover { transform: translateY(-3px); }
+
+/* floating dots */
+.dots { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.dot-float {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatDot 3s infinite alternate ease-in-out;
+}
+@keyframes floatDot {
+  from { transform: translateY(0px); opacity: 0.15; }
+  to   { transform: translateY(-6px); opacity: 0.5; }
+}
+
+.cover-for {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #C07B3A;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.cover-name {
+  font-size: 58px;
+  font-weight: 400;
+  color: #2A1F14;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+  line-height: 1.1;
+}
+
+.cover-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #A07050;
+  letter-spacing: 2px;
+}
+
+.cover-btn {
+  margin-top: 0.6rem;
+  padding: 12px 36px;
+  background: transparent;
+  border: 1px solid #D4A574;
+  border-radius: 30px;
+  color: #C07B3A;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 1px;
+  transition: all 0.25s;
+  position: relative;
+  z-index: 2;
+}
+.cover-btn:hover { background: #D4A574; color: #2A1F14; }
+
+/* INSIDE */
+.inside {
+  display: none;
+  background: #FFF8F0;
+  border-radius: 24px;
+  border: 1px solid #E8D8C4;
+  overflow: hidden;
+  animation: fadeUp 0.6s ease;
+  box-shadow: 0 4px 24px rgba(180,140,100,0.08);
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.inside.visible { display: block; }
+
+.inside-header {
+  background: #FDF0E0;
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #EDD9BF;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.r { background: #FBBFBB; }
+.dot.y { background: #FDE68A; }
+.dot.g { background: #86EFAC; }
+.header-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #C07B3A;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 2px;
+}
+
+.inside-body {
+  padding: 2.4rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #C07B3A;
+  letter-spacing: 2px;
+}
+
+.message {
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4A3728;
+  font-family: Georgia, serif;
+}
+.message .hl {
+  color: #B86A2A;
+  font-style: italic;
+}
+
+.divider {
+  border: none;
+  border-top: 1px dashed #EDD9BF;
+}
+
+.closing {
+  font-size: 18px;
+  color: #2A1F14;
+  line-height: 1.8;
+  padding: 0.4rem 0;
+  font-family: 'DM Serif Display', serif;
+}
+.closing .hl { color: #B86A2A; }
+
+.sign {
+  text-align: right;
+  font-style: italic;
+  color: #C07B3A;
+  font-size: 13px;
+  font-family: 'DM Mono', monospace;
+}
+
+.back-btn {
+  width: 100%;
+  padding: 11px;
+  background: transparent;
+  border: none;
+  border-top: 1px solid #EDD9BF;
+  color: #B86A2A;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: color 0.2s;
+}
+.back-btn:hover { color: #2A1F14; }
+
+/* LOCKED */
+.locked {
+  display: none;
+  background: #FFF8F0;
+  border-radius: 24px;
+  border: 1px solid #E8D8C4;
+  overflow: hidden;
+  animation: fadeUp 0.6s ease;
+  box-shadow: 0 4px 24px rgba(180,140,100,0.08);
+  min-height: 360px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.2rem;
+  padding: 3rem 2rem;
+}
+.locked.visible { display: flex; }
+
+.lock-icon { font-size: 42px; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+
+.lock-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #C07B3A;
+  letter-spacing: 3px;
+}
+
+.lock-msg {
+  font-size: 15px;
+  color: #4A3728;
+  line-height: 1.85;
+  font-family: Georgia, serif;
+}
+.lock-msg span { color: #B86A2A; font-style: italic; font-weight: 600; }
+
+.countdown {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: #C07B3A;
+  background: #FDF0E0;
+  border: 1px solid #E8D8C4;
+  border-radius: 12px;
+  padding: 10px 22px;
+  letter-spacing: 1px;
+}
+
+.lock-back {
+  margin-top: 0.4rem;
+  padding: 10px 28px;
+  background: transparent;
+  border: 1px solid #D4A574;
+  border-radius: 30px;
+  color: #C07B3A;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+}
+.lock-back:hover { background: #D4A574; color: #2A1F14; }
+</style>
+</head>
+<body>
+
+<div class="scene">
+  <div class="card-wrap">
+
+    <!-- COVER -->
+    <div class="cover" id="cover">
+      <div class="dots" id="dots"></div>
+      <div class="cover-for">// for my</div>
+      <div class="cover-name">Lokesh</div>
+      <div class="cover-sub">bro ✦</div>
+      <button class="cover-btn" id="openBtn">open this bro ♡</button>
+    </div>
+
+    <!-- LOCKED -->
+    <div class="locked" id="locked">
+      <div class="lock-icon">🔒</div>
+      <div class="lock-title">// not yet, bro</div>
+      <div class="lock-msg">
+        this card is sealed with emotions<br/>
+        and will open on<br/>
+        <span>April 2nd ✦</span>
+      </div>
+      <div class="countdown" id="countdown">calculating...</div>
+      <button class="lock-back" id="lockBackBtn">↩ back</button>
+    </div>
+
+    <!-- INSIDE -->
+    <div class="inside" id="inside">
+      <div class="inside-header">
+        <div class="dot r"></div>
+        <div class="dot y"></div>
+        <div class="dot g"></div>
+        <div class="header-title">my bro, lokesh</div>
+      </div>
+
+      <div class="inside-body">
+        <div class="label">// bro,</div>
+
+        <div class="message">
+          Only <span class="hl">2 months</span> — and somehow you already feel like
+          someone I've known forever.<br><br>
+          The kind of person who shows up, who listens,
+          who supports without even being asked.
+          You're <span class="hl">genuinely good</span>, bro.
+          That's rare. That's you.
+        </div>
+
+        <hr class="divider"/>
+
+        <div class="message">
+          I call most people bro —
+          but with you it means something different.<br><br>
+          Because I never really had a brother.
+          And somehow, without planning it,
+          <span class="hl">that's what you became.</span>
+        </div>
+
+        <hr class="divider"/>
+
+        <div class="closing">
+          Wherever you go from here —<br>
+          don't forget you have a <span class="hl">sister</span> somewhere<br>
+          who's rooting for you. Always. 🤍
+        </div>
+
+        <div class="sign">// your sister, raji ✦</div>
+      </div>
+
+      <button class="back-btn" id="backBtn">↩ close</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Floating dots
+const dotsEl = document.getElementById('dots');
+const colors = ['#D4A574','#E8C99A','#F5DEB3','#C8956C'];
+for (let i = 0; i < 22; i++) {
+  const d = document.createElement('div');
+  d.className = 'dot-float';
+  const size = Math.random() * 5 + 2;
+  d.style.cssText = `
+    width:${size}px;height:${size}px;
+    top:${Math.random()*100}%;left:${Math.random()*100}%;
+    background:${colors[Math.floor(Math.random()*colors.length)]};
+    animation-delay:${Math.random()*2}s;
+    animation-duration:${Math.random()*2+2}s;
+  `;
+  dotsEl.appendChild(d);
+}
+
+// April 2 2026 00:00:00 IST = April 1 2026 18:30:00 UTC
+function getUnlockDate() {
+  return new Date(Date.UTC(2026, 3, 1, 18, 30, 0));
+}
+function isUnlocked() {
+  return new Date() >= getUnlockDate();
+}
+function getTimeLeft() {
+  const diff = getUnlockDate() - new Date();
+  if (diff <= 0) return null;
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const secs = Math.floor((diff % (1000*60)) / 1000);
+  return { days, hours, mins, secs };
+}
+function updateCountdown() {
+  const t = getTimeLeft();
+  const el = document.getElementById('countdown');
+  if (!t) { el.textContent = '🔓 unlocked!'; return; }
+  if (t.days > 0) el.textContent = `opens in ${t.days}d ${t.hours}h ${t.mins}m ${t.secs}s`;
+  else if (t.hours > 0) el.textContent = `opens in ${t.hours}h ${t.mins}m ${t.secs}s`;
+  else el.textContent = `opens in ${t.mins}m ${t.secs}s`;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+document.getElementById('openBtn').addEventListener('click', function(e) {
+  e.stopPropagation();
+  if (isUnlocked()) {
+    document.getElementById('cover').style.display = 'none';
+    document.getElementById('inside').classList.add('visible');
+  } else {
+    document.getElementById('cover').style.display = 'none';
+    document.getElementById('locked').classList.add('visible');
+    updateCountdown();
+  }
+});
+
+document.getElementById('lockBackBtn').addEventListener('click', function() {
+  document.getElementById('locked').classList.remove('visible');
+  document.getElementById('cover').style.display = 'flex';
+});
+
+document.getElementById('backBtn').addEventListener('click', function() {
+  document.getElementById('inside').classList.remove('visible');
+  document.getElementById('cover').style.display = 'flex';
+});
+</script>
+
+</body>
+</html>
