@@ -5,374 +5,296 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>for lokesh bro</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body { background: #F7F3EE; }
+:root {
+  --ink: #2A1F14;
+  --soft: #4A3728;
+  --muted: #A07050;
+  --accent: #C07B3A;
+  --accent-light: #D4A574;
+  --bg: #FFF8F0;
+  --bg2: #FDF0E0;
+  --border: #E8D8C4;
+}
 
-.scene {
-  width: 100%;
+body {
+  background: #F7F3EE;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'DM Mono', monospace;
   padding: 2rem 1rem;
-  font-family: 'DM Serif Display', Georgia, serif;
 }
 
-.card-wrap { width: 100%; max-width: 520px; }
+.wrap { width: 100%; max-width: 540px; }
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.5;
+}
 
 /* COVER */
 .cover {
-  background: #FFF8F0;
+  background: var(--bg);
   border-radius: 24px;
-  padding: 3.5rem 2rem;
+  border: 1px solid var(--border);
+  padding: 4rem 2.5rem 3rem;
   text-align: center;
+  cursor: pointer;
   position: relative;
   overflow: hidden;
-  border: 1px solid #E8D8C4;
-  min-height: 360px;
+  min-height: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.4rem;
-  transition: transform 0.2s ease;
-  box-shadow: 0 4px 24px rgba(180,140,100,0.08);
+  gap: 1.2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 40px rgba(180,140,100,0.08);
 }
-.cover:hover { transform: translateY(-3px); }
+.cover:hover { transform: translateY(-4px); box-shadow: 0 12px 50px rgba(180,140,100,0.14); }
 
-/* floating dots */
-.dots { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-.dot-float {
-  position: absolute;
-  border-radius: 50%;
-  animation: floatDot 3s infinite alternate ease-in-out;
+.blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(40px); pointer-events: none;
+  opacity: 0.18; animation: drift 8s ease-in-out infinite alternate;
 }
-@keyframes floatDot {
-  from { transform: translateY(0px); opacity: 0.15; }
-  to   { transform: translateY(-6px); opacity: 0.5; }
-}
+.blob1 { width: 220px; height: 220px; background: #D4A574; top: -60px; left: -60px; }
+.blob2 { width: 180px; height: 180px; background: #f7c6a0; bottom: -50px; right: -40px; animation-delay: 2s; }
+.blob3 { width: 120px; height: 120px; background: #e8d5b7; top: 40%; left: 60%; animation-delay: 4s; }
+@keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(12px,16px) scale(1.08); } }
 
-.cover-for {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: #C07B3A;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
+.dot-float { position: absolute; border-radius: 50%; animation: floatDot 3s infinite alternate ease-in-out; }
+@keyframes floatDot { from { transform: translateY(0); opacity: 0.15; } to { transform: translateY(-6px); opacity: 0.5; } }
 
-.cover-name {
-  font-size: 58px;
-  font-weight: 400;
-  color: #2A1F14;
-  letter-spacing: 1px;
-  position: relative;
-  z-index: 1;
-  line-height: 1.1;
-}
-
-.cover-sub {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: #A07050;
-  letter-spacing: 2px;
-}
+.for-label { font-size: 10px; letter-spacing: 4px; color: var(--accent); position: relative; }
+.cover-name { font-family: 'DM Serif Display', serif; font-size: 64px; color: var(--ink); position: relative; line-height: 1; letter-spacing: 1px; }
+.cover-sub { font-size: 10px; color: var(--muted); letter-spacing: 3px; position: relative; }
 
 .cover-btn {
-  margin-top: 0.6rem;
-  padding: 12px 36px;
-  background: transparent;
-  border: 1px solid #D4A574;
-  border-radius: 30px;
-  color: #C07B3A;
-  font-size: 12px;
-  cursor: pointer;
-  font-family: 'DM Mono', monospace;
-  letter-spacing: 1px;
-  transition: all 0.25s;
-  position: relative;
-  z-index: 2;
+  margin-top: 1rem; padding: 13px 42px;
+  background: transparent; border: 1px solid var(--border);
+  border-radius: 40px; color: var(--accent); font-size: 12px;
+  cursor: pointer; font-family: 'DM Mono', monospace;
+  letter-spacing: 2px; transition: all 0.25s; position: relative;
 }
-.cover-btn:hover { background: #D4A574; color: #2A1F14; }
-
-/* INSIDE */
-.inside {
-  display: none;
-  background: #FFF8F0;
-  border-radius: 24px;
-  border: 1px solid #E8D8C4;
-  overflow: hidden;
-  animation: fadeUp 0.6s ease;
-  box-shadow: 0 4px 24px rgba(180,140,100,0.08);
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.inside.visible { display: block; }
-
-.inside-header {
-  background: #FDF0E0;
-  padding: 1.1rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 1px solid #EDD9BF;
-}
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.dot.r { background: #FBBFBB; }
-.dot.y { background: #FDE68A; }
-.dot.g { background: #86EFAC; }
-.header-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: #C07B3A;
-  margin-left: auto;
-  margin-right: auto;
-  letter-spacing: 2px;
-}
-
-.inside-body {
-  padding: 2.4rem 2.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.label {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: #C07B3A;
-  letter-spacing: 2px;
-}
-
-.message {
-  font-size: 15.5px;
-  line-height: 1.95;
-  color: #4A3728;
-  font-family: Georgia, serif;
-}
-.message .hl {
-  color: #B86A2A;
-  font-style: italic;
-}
-
-.divider {
-  border: none;
-  border-top: 1px dashed #EDD9BF;
-}
-
-.closing {
-  font-size: 18px;
-  color: #2A1F14;
-  line-height: 1.8;
-  padding: 0.4rem 0;
-  font-family: 'DM Serif Display', serif;
-}
-.closing .hl { color: #B86A2A; }
-
-.sign {
-  text-align: right;
-  font-style: italic;
-  color: #C07B3A;
-  font-size: 13px;
-  font-family: 'DM Mono', monospace;
-}
-
-.back-btn {
-  width: 100%;
-  padding: 11px;
-  background: transparent;
-  border: none;
-  border-top: 1px solid #EDD9BF;
-  color: #B86A2A;
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  cursor: pointer;
-  letter-spacing: 2px;
-  transition: color 0.2s;
-}
-.back-btn:hover { color: #2A1F14; }
+.cover-btn:hover { background: var(--accent); color: white; border-color: var(--accent); transform: scale(1.03); }
 
 /* LOCKED */
 .locked {
-  display: none;
-  background: #FFF8F0;
-  border-radius: 24px;
-  border: 1px solid #E8D8C4;
-  overflow: hidden;
-  animation: fadeUp 0.6s ease;
-  box-shadow: 0 4px 24px rgba(180,140,100,0.08);
-  min-height: 360px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 1.2rem;
-  padding: 3rem 2rem;
+  display: none; background: var(--bg); border-radius: 24px;
+  border: 1px solid var(--border); overflow: hidden; min-height: 380px;
+  flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: 1.4rem; padding: 3.5rem 2.5rem 4rem;
+  animation: fadeUp 0.5s ease; position: relative;
+  box-shadow: 0 2px 40px rgba(180,140,100,0.08);
 }
 .locked.visible { display: flex; }
 
-.lock-icon { font-size: 42px; animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+.lock-pulse { font-size: 44px; animation: lockpulse 2.2s ease-in-out infinite; }
+@keyframes lockpulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1) rotate(-3deg); } }
 
-.lock-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: #C07B3A;
-  letter-spacing: 3px;
-}
-
-.lock-msg {
-  font-size: 15px;
-  color: #4A3728;
-  line-height: 1.85;
-  font-family: Georgia, serif;
-}
-.lock-msg span { color: #B86A2A; font-style: italic; font-weight: 600; }
+.lock-label { font-size: 10px; letter-spacing: 4px; color: var(--accent); }
+.lock-msg { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ink); line-height: 1.6; }
+.lock-msg em { font-style: italic; color: var(--accent); }
+.lock-note { font-size: 11px; color: var(--muted); line-height: 1.9; max-width: 300px; }
 
 .countdown {
-  font-family: 'DM Mono', monospace;
-  font-size: 13px;
-  color: #C07B3A;
-  background: #FDF0E0;
-  border: 1px solid #E8D8C4;
-  border-radius: 12px;
-  padding: 10px 22px;
-  letter-spacing: 1px;
+  font-size: 12px; color: var(--accent); background: var(--bg2);
+  border: 1px solid var(--border); border-radius: 14px;
+  padding: 12px 28px; letter-spacing: 2px;
 }
 
 .lock-back {
-  margin-top: 0.4rem;
-  padding: 10px 28px;
-  background: transparent;
-  border: 1px solid #D4A574;
-  border-radius: 30px;
-  color: #C07B3A;
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  cursor: pointer;
-  letter-spacing: 2px;
-  transition: all 0.2s;
+  position: absolute; bottom: 0; left: 0; right: 0; padding: 12px;
+  background: transparent; border: none; border-top: 1px solid var(--border);
+  color: var(--muted); font-family: 'DM Mono', monospace; font-size: 10px;
+  cursor: pointer; letter-spacing: 3px; transition: color 0.2s;
 }
-.lock-back:hover { background: #D4A574; color: #2A1F14; }
+.lock-back:hover { color: var(--accent); }
+
+/* INSIDE */
+.inside {
+  display: none; background: var(--bg); border-radius: 24px;
+  border: 1px solid var(--border); overflow: hidden;
+  animation: fadeUp 0.6s ease; box-shadow: 0 4px 50px rgba(180,140,100,0.1);
+}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.inside.visible { display: block; }
+
+.inside-header {
+  background: var(--bg2); padding: 1.1rem 1.6rem;
+  display: flex; align-items: center; gap: 7px;
+  border-bottom: 1px solid var(--border);
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.r { background: #f9b4b4; } .dot.y { background: #f9e4a0; } .dot.g { background: #a8e6b8; }
+.h-title { font-size: 10px; color: var(--accent); margin: 0 auto; letter-spacing: 3px; }
+
+.inside-body { padding: 2.8rem 2.4rem; display: flex; flex-direction: column; gap: 1.8rem; }
+
+.label { font-size: 10px; color: var(--accent); letter-spacing: 3px; }
+
+.msg { font-family: 'DM Serif Display', serif; font-size: 17px; line-height: 1.95; color: var(--soft); }
+.msg strong { color: var(--ink); font-weight: 400; }
+.msg em { color: var(--accent); font-style: italic; }
+
+.mono-note { font-size: 11px; line-height: 2.1; color: var(--muted); border-left: 2px solid var(--border); padding-left: 1rem; }
+.mono-note span { color: var(--accent-light); }
+
+.divider { border: none; border-top: 1px dashed var(--border); }
+
+.closing { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--ink); line-height: 1.85; }
+.closing em { color: var(--accent); }
+
+.sign { text-align: right; font-size: 11px; color: var(--muted); letter-spacing: 2px; }
+.sign span { color: var(--accent); }
+
+.back-btn {
+  width: 100%; padding: 13px; background: transparent; border: none;
+  border-top: 1px solid var(--border); color: var(--muted);
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  cursor: pointer; letter-spacing: 3px; transition: color 0.2s;
+}
+.back-btn:hover { color: var(--accent); }
 </style>
 </head>
 <body>
 
-<div class="scene">
-  <div class="card-wrap">
+<div class="wrap">
 
-    <!-- COVER -->
-    <div class="cover" id="cover">
-      <div class="dots" id="dots"></div>
-      <div class="cover-for">// for my</div>
-      <div class="cover-name">Lokesh</div>
-      <div class="cover-sub">bro ✦</div>
-      <button class="cover-btn" id="openBtn">open this bro ♡</button>
-    </div>
-
-    <!-- LOCKED -->
-    <div class="locked" id="locked">
-      <div class="lock-icon">🔒</div>
-      <div class="lock-title">// not yet, bro</div>
-      <div class="lock-msg">
-        this card is sealed with emotions<br/>
-        and will open on<br/>
-        <span>April 2nd ✦</span>
-      </div>
-      <div class="countdown" id="countdown">calculating...</div>
-      <button class="lock-back" id="lockBackBtn">↩ back</button>
-    </div>
-
-    <!-- INSIDE -->
-    <div class="inside" id="inside">
-      <div class="inside-header">
-        <div class="dot r"></div>
-        <div class="dot y"></div>
-        <div class="dot g"></div>
-        <div class="header-title">my bro, lokesh</div>
-      </div>
-
-      <div class="inside-body">
-        <div class="label">// bro,</div>
-
-        <div class="message">
-          Only <span class="hl">2 months</span> — and somehow you already feel like
-          someone I've known forever.<br><br>
-          The kind of person who shows up, who listens,
-          who supports without even being asked.
-          You're <span class="hl">genuinely good</span>, bro.
-          That's rare. That's you.
-        </div>
-
-        <hr class="divider"/>
-
-        <div class="message">
-          I call most people bro —
-          but with you it means something different.<br><br>
-          Because I never really had a brother.
-          And somehow, without planning it,
-          <span class="hl">that's what you became.</span>
-        </div>
-
-        <hr class="divider"/>
-
-        <div class="closing">
-          Wherever you go from here —<br>
-          don't forget you have a <span class="hl">sister</span> somewhere<br>
-          who's rooting for you. Always. 🤍
-        </div>
-
-        <div class="sign">// your sister, raji ✦</div>
-      </div>
-
-      <button class="back-btn" id="backBtn">↩ close</button>
-    </div>
-
+  <!-- COVER -->
+  <div class="cover" id="cover">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+    <div id="dots"></div>
+    <div class="for-label">// for my</div>
+    <div class="cover-name">Lokesh</div>
+    <div class="cover-sub">bro ✦</div>
+    <button class="cover-btn" id="openBtn">open this bro ♡</button>
   </div>
+
+  <!-- LOCKED -->
+  <div class="locked" id="locked">
+    <div class="lock-pulse">🔒</div>
+    <div class="lock-label">// not yet, bro</div>
+    <div class="lock-msg">this one's sealed with emotions🥰<br/>until <em>April 2nd ✦</em></div>
+    <div class="lock-note">
+      waiting for <br/>
+  right time bro
+    </div>
+    <div class="countdown" id="countdown">calculating...</div>
+    <button class="lock-back" id="lockBackBtn">↩ back</button>
+  </div>
+
+  <!-- INSIDE -->
+  <div class="inside" id="inside">
+    <div class="inside-header">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <div class="h-title">my bro, lokesh</div>
+    </div>
+
+    <div class="inside-body">
+      <div class="label">// bro,</div>
+
+      <div class="msg">
+        Just 2 months.<br/>
+        And I genuinely don't know how it happened🤷‍♀️ —<br/>
+        how someone becomes <em>this important</em> this fast.<br/><br/>
+        I use "bro" for everyone.<br/>
+        But with you, it means something different🥰.<br/>
+        <strong>It always did.</strong>
+      </div>
+
+      <div class="mono-note">
+        <span>// from the start, one side felt close.😊</span><br/>
+        the other side kept asking —<br/>
+        <em>why are we this close already?🥺🥺</em><br/>
+        <span>// both feelings were real.</span>
+      </div>
+
+      <hr class="divider"/>
+
+      <div class="msg">
+        I never really had a brother.<br/>
+        Not like this.<br/><br/>
+        But without planning it, without even realizing it —<br/>
+        <strong>that's what you became.</strong><br/>
+        The kind who shows up. Who listens.<br/>
+        Who supports without being asked.😊😊😊<br/>
+        Even when you do something completely unhinged —<br/>
+        <em>you still have my back.</em> And I have yours.
+      </div>
+
+      <hr class="divider"/>
+
+      <div class="msg">
+        And now I don't know when we'll meet again.🤕🤕<br/>
+        I don't know if it'll be the same —<br/>
+        you, me, Sakthi, all of us, like before😕😕.<br/><br/>
+        <strong>That's the part that hurts, bro.</strong><br/>
+        Not the goodbye. The not knowing.
+      </div>
+
+      <div class="mono-note">
+        <span>// why do I miss everyone so much?</span><br/>
+        I don't have an answer.<br/>
+        it just feels heavy.<br/>
+        <span>// that's all it is.</span>
+      </div>
+
+      <hr class="divider"/>
+
+      <div class="closing">
+        But don't forget, bro —<br/>
+        somewhere out there you have a <em>sister</em><br/>
+        who's rooting for you.<br/>
+        Always will be. 🤍
+      </div>
+
+      <div class="sign">// miss you bro — <span>your sister, raji ✦</span></div>
+    </div>
+
+    <button class="back-btn" id="backBtn">↩ close</button>
+  </div>
+
 </div>
 
 <script>
-// Floating dots
 const dotsEl = document.getElementById('dots');
 const colors = ['#D4A574','#E8C99A','#F5DEB3','#C8956C'];
 for (let i = 0; i < 22; i++) {
   const d = document.createElement('div');
   d.className = 'dot-float';
   const size = Math.random() * 5 + 2;
-  d.style.cssText = `
-    width:${size}px;height:${size}px;
-    top:${Math.random()*100}%;left:${Math.random()*100}%;
-    background:${colors[Math.floor(Math.random()*colors.length)]};
-    animation-delay:${Math.random()*2}s;
-    animation-duration:${Math.random()*2+2}s;
-  `;
+  d.style.cssText = `position:absolute;width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-delay:${Math.random()*2}s;animation-duration:${Math.random()*2+2}s;`;
   dotsEl.appendChild(d);
 }
 
-// April 2 2026 00:00:00 IST = April 1 2026 18:30:00 UTC
-function getUnlockDate() {
-  return new Date(Date.UTC(2026, 3, 1, 18, 30, 0));
-}
-function isUnlocked() {
-  return new Date() >= getUnlockDate();
-}
+function getUnlockDate() { return new Date(Date.UTC(2026, 3, 1, 18, 30, 0)); }
+function isUnlocked() { return new Date() >= getUnlockDate(); }
 function getTimeLeft() {
   const diff = getUnlockDate() - new Date();
   if (diff <= 0) return null;
-  const days = Math.floor(diff / (1000*60*60*24));
-  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-  const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
-  const secs = Math.floor((diff % (1000*60)) / 1000);
+  const days = Math.floor(diff / 864e5);
+  const hours = Math.floor((diff % 864e5) / 36e5);
+  const mins = Math.floor((diff % 36e5) / 6e4);
+  const secs = Math.floor((diff % 6e4) / 1000);
   return { days, hours, mins, secs };
 }
 function updateCountdown() {
   const t = getTimeLeft();
   const el = document.getElementById('countdown');
-  if (!t) { el.textContent = '🔓 unlocked!'; return; }
+  if (!t) { el.textContent = '🔓 unlocked ✦'; return; }
   if (t.days > 0) el.textContent = `opens in ${t.days}d ${t.hours}h ${t.mins}m ${t.secs}s`;
   else if (t.hours > 0) el.textContent = `opens in ${t.hours}h ${t.mins}m ${t.secs}s`;
   else el.textContent = `opens in ${t.mins}m ${t.secs}s`;
@@ -388,20 +310,16 @@ document.getElementById('openBtn').addEventListener('click', function(e) {
   } else {
     document.getElementById('cover').style.display = 'none';
     document.getElementById('locked').classList.add('visible');
-    updateCountdown();
   }
 });
-
 document.getElementById('lockBackBtn').addEventListener('click', function() {
   document.getElementById('locked').classList.remove('visible');
   document.getElementById('cover').style.display = 'flex';
 });
-
 document.getElementById('backBtn').addEventListener('click', function() {
   document.getElementById('inside').classList.remove('visible');
   document.getElementById('cover').style.display = 'flex';
 });
 </script>
-
 </body>
 </html>
