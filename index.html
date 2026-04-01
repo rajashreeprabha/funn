@@ -41,7 +41,6 @@ body::before {
   opacity: 0.5;
 }
 
-/* COVER */
 .cover {
   background: var(--bg);
   border-radius: 24px;
@@ -88,40 +87,6 @@ body::before {
 }
 .cover-btn:hover { background: var(--accent); color: white; border-color: var(--accent); transform: scale(1.03); }
 
-/* LOCKED */
-.locked {
-  display: none; background: var(--bg); border-radius: 24px;
-  border: 1px solid var(--border); overflow: hidden; min-height: 380px;
-  flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; gap: 1.4rem; padding: 3.5rem 2.5rem 4rem;
-  animation: fadeUp 0.5s ease; position: relative;
-  box-shadow: 0 2px 40px rgba(180,140,100,0.08);
-}
-.locked.visible { display: flex; }
-
-.lock-pulse { font-size: 44px; animation: lockpulse 2.2s ease-in-out infinite; }
-@keyframes lockpulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1) rotate(-3deg); } }
-
-.lock-label { font-size: 10px; letter-spacing: 4px; color: var(--accent); }
-.lock-msg { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ink); line-height: 1.6; }
-.lock-msg em { font-style: italic; color: var(--accent); }
-.lock-note { font-size: 11px; color: var(--muted); line-height: 1.9; max-width: 300px; }
-
-.countdown {
-  font-size: 12px; color: var(--accent); background: var(--bg2);
-  border: 1px solid var(--border); border-radius: 14px;
-  padding: 12px 28px; letter-spacing: 2px;
-}
-
-.lock-back {
-  position: absolute; bottom: 0; left: 0; right: 0; padding: 12px;
-  background: transparent; border: none; border-top: 1px solid var(--border);
-  color: var(--muted); font-family: 'DM Mono', monospace; font-size: 10px;
-  cursor: pointer; letter-spacing: 3px; transition: color 0.2s;
-}
-.lock-back:hover { color: var(--accent); }
-
-/* INSIDE */
 .inside {
   display: none; background: var(--bg); border-radius: 24px;
   border: 1px solid var(--border); overflow: hidden;
@@ -177,91 +142,77 @@ body::before {
     <div class="blob blob2"></div>
     <div class="blob blob3"></div>
     <div id="dots"></div>
-    <div class="for-label">// for my</div>
-    <div class="cover-name">Lokesh</div>
-    <div class="cover-sub">bro ✦</div>
-    <button class="cover-btn" id="openBtn">open this bro ♡</button>
-  </div>
-
-  <!-- LOCKED -->
-  <div class="locked" id="locked">
-    <div class="lock-pulse">🔒</div>
-    <div class="lock-label">// not yet, bro</div>
-    <div class="lock-msg">this one's sealed with emotions🥰<br/>until <em>April 2nd ✦</em></div>
-    <div class="lock-note">
-      waiting for <br/>
-  right time bro
-    </div>
-    <div class="countdown" id="countdown">calculating...</div>
-    <button class="lock-back" id="lockBackBtn">↩ back</button>
+    <div class="for-label">//  for my</div>
+    <div class="cover-name">Lokesh bro</div>
+    <div class="cover-sub">from your sister ✦</div>
+    <button class="cover-btn" id="openBtn">open here bro ♡</button>
   </div>
 
   <!-- INSIDE -->
   <div class="inside" id="inside">
     <div class="inside-header">
       <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
-      <div class="h-title">my bro, lokesh</div>
+      <div class="h-title">bro,</div>
     </div>
 
     <div class="inside-body">
       <div class="label">// bro,</div>
 
       <div class="msg">
-        Just 2 months.<br/>
-        And I genuinely don't know how it happened🤷‍♀️ —<br/>
-        how someone becomes <em>this important</em> this fast.<br/><br/>
-        I use "bro" for everyone.<br/>
-        But with you, it means something different🥰.<br/>
-        <strong>It always did.</strong>
+        2 month dha bro aachi nama meet panni.<br/>
+        aana epdi nadandhadhu nu theriyala🤷‍♀️ —<br/>
+        oru person <em>en life la important aavanganu </em> serious ahh bro na starting la nenachi kooda pakala nama close aavom nu. neenga peasuvingalanu kooda theriyala.<br/><br/>
+        "Bro" nu ellarayum normal ahh solla matta na.<br/>
+        Aana yen apdi unna koopda start pannanu theriyala but ennaku un kitta oru brother feel vanthuchi 🥰.<br/>
+        <strong>ennaku brothers ella ...ennaku brother irukanganu oru feel thantha</strong>
       </div>
 
       <div class="mono-note">
-        <span>// from the start, one side felt close.😊</span><br/>
-        the other side kept asking —<br/>
-        <em>why are we this close already?🥺🥺</em><br/>
-        <span>// both feelings were real.</span>
+        <span>// starting la oru brother irukanganu happy ahh feel panna😊</span><br/>
+        aana —<br/>
+        <em>innoru side yen close aana nu feel pannra🥺🥺</em><br/>
+        <span>// yen na serious ahh innum 10 days apram nee intha msg pakura apo nama onna iruka mattom.<br/>
+        na veliya strong ahh iruka mari theriyuva aana na adhuku opposite bro na pogum bothu happy ahh iruka mari <br/>
+        siricha kooda serious ahh feel pannuva bro </span>
       </div>
 
       <hr class="divider"/>
 
       <div class="msg">
-        I never really had a brother.<br/>
-        Not like this.<br/><br/>
-        But without planning it, without even realizing it —<br/>
-        <strong>that's what you became.</strong><br/>
-        The kind who shows up. Who listens.<br/>
-        Who supports without being asked.😊😊😊<br/>
-        Even when you do something completely unhinged —<br/>
-        <em>you still have my back.</em> And I have yours.
+        Ennaku oru anna mari.<br/><br/>
+        <strong>na summa sonna kooda ennaku support panni iruka</strong><br/>
+        nee edhayum veliya kattika mattanu nee tha sonna...aana nee once close aagita nallavea peasura bro<br/>
+        Kekkaama support panra type.😊😊😊<br/>
+         sakthi mental mari edhavathu panna kooda ...na feel pannranu solli —<br/>
+        <em>ennaku support pannuva...avana sorry keaka vechi iruka</em> adhey mari nanum unnaku support panni iruka...konja naal la neriya memories bro
       </div>
 
       <hr class="divider"/>
 
       <div class="msg">
-        And now I don't know when we'll meet again.🤕🤕<br/>
-        I don't know if it'll be the same —<br/>
-        you, me, Sakthi, all of us, like before😕😕.<br/><br/>
-        <strong>That's the part that hurts, bro.</strong><br/>
-        Not the goodbye. The not knowing.
+        innimea epo meet pannuvom nu thjeriyala.🤕🤕<br/>
+        meet pannalum adhey mari bonding irukum ahh nu trheriyala—<br/>
+        nee, naanu, Sakthi, ellarum, munaadi mari irupom ahh nu doubt tha😕😕.<br/><br/>
+        <strong>Adhu tha kastam ahh iruku bro.</strong><br/>
+        Goodbye lam sollala.....meet pannalam...
       </div>
 
       <div class="mono-note">
-        <span>// why do I miss everyone so much?</span><br/>
-        I don't have an answer.<br/>
-        it just feels heavy.<br/>
-        <span>// that's all it is.</span>
+        <span>// aana na ellarayum miss pannuvaa bro</span><br/>
+        oru mari iruku nenaikum bothey atha april 2 schedule pannita.<br/>
+        <span>// adhu dhan reason...na irukum bothu padicha na may be ala kooda chance iruku</span>
       </div>
 
       <hr class="divider"/>
 
       <div class="closing">
-        But don't forget, bro —<br/>
-        somewhere out there you have a <em>sister</em><br/>
-        who's rooting for you.<br/>
-        Always will be. 🤍
+        Aana maranthudatha bro —<br/>
+        unnaku inga oru <em>sister</em> irukkaa<br/>
+        unakkaaga eppovum support pannuva<br/>
+        help uhh pannuva 🤍
       </div>
 
-      <div class="sign">// miss you bro — <span>your sister, raji ✦</span></div>
+      <div class="sign">// miss you bro — <span>un sister, raji ✦</span></div>
     </div>
 
     <button class="back-btn" id="backBtn">↩ close</button>
@@ -280,41 +231,10 @@ for (let i = 0; i < 22; i++) {
   dotsEl.appendChild(d);
 }
 
-function getUnlockDate() { return new Date(Date.UTC(2026, 3, 1, 18, 30, 0)); }
-function isUnlocked() { return new Date() >= getUnlockDate(); }
-function getTimeLeft() {
-  const diff = getUnlockDate() - new Date();
-  if (diff <= 0) return null;
-  const days = Math.floor(diff / 864e5);
-  const hours = Math.floor((diff % 864e5) / 36e5);
-  const mins = Math.floor((diff % 36e5) / 6e4);
-  const secs = Math.floor((diff % 6e4) / 1000);
-  return { days, hours, mins, secs };
-}
-function updateCountdown() {
-  const t = getTimeLeft();
-  const el = document.getElementById('countdown');
-  if (!t) { el.textContent = '🔓 unlocked ✦'; return; }
-  if (t.days > 0) el.textContent = `opens in ${t.days}d ${t.hours}h ${t.mins}m ${t.secs}s`;
-  else if (t.hours > 0) el.textContent = `opens in ${t.hours}h ${t.mins}m ${t.secs}s`;
-  else el.textContent = `opens in ${t.mins}m ${t.secs}s`;
-}
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
 document.getElementById('openBtn').addEventListener('click', function(e) {
   e.stopPropagation();
-  if (isUnlocked()) {
-    document.getElementById('cover').style.display = 'none';
-    document.getElementById('inside').classList.add('visible');
-  } else {
-    document.getElementById('cover').style.display = 'none';
-    document.getElementById('locked').classList.add('visible');
-  }
-});
-document.getElementById('lockBackBtn').addEventListener('click', function() {
-  document.getElementById('locked').classList.remove('visible');
-  document.getElementById('cover').style.display = 'flex';
+  document.getElementById('cover').style.display = 'none';
+  document.getElementById('inside').classList.add('visible');
 });
 document.getElementById('backBtn').addEventListener('click', function() {
   document.getElementById('inside').classList.remove('visible');
